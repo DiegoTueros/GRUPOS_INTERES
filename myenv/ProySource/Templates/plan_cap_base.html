@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+{% block opciones%}
+<li class="nav-item">
+<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseConvBase" aria-expanded="true"
+          aria-controls="collapseConvBase">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Plan de Capacitacion</span>
+        </a>
+        <div id="collapseConvBase" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Seleccionar:</h6>
+            <a class="collapse-item" href="{% url 'Competencias' %}">Competencias</a>
+            <a class="collapse-item" href="{% url 'PlanCap_Form' %}">Objetivos</a>
+            <a class="collapse-item" href="{% url 'PlanCap_Form' %}">Actividades</a>
+          </div>
+        </div>
+    </li>
+{%block opciones2%}
+{% endblock %}
+
+{% endblock %}

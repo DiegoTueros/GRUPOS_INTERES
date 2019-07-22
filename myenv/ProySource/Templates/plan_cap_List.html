@@ -1,0 +1,59 @@
+{% extends "plan_cap_base.html" %}
+{% load staticfiles %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+{% block content %}
+
+<!--<h1> HOLA MUNDO </h1>-->
+<!-- DataTables Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Tablas</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Convenio</th>
+                        <th>Denominacion</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>id</th>
+                        <th>Convenio</th>
+                        <th>Denominacion</th>
+                        <th>Acciones</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    {% if object_list %}
+                    {% for PlanDeCapacitacion in object_list %}
+                    <tr>
+                        <td>{{PlanDeCapacitacion.id}}</td>
+                        <td>{{PlanDeCapacitacion.convenio}}</td>
+                        <td>{{PlanDeCapacitacion.denominacion}}</td>
+                        <td>
+                            <a class="btn btn-primary" href="{% url 'PlanCap_edit' PlanDeCapacitacion.id %}">Editar</a>
+                            <a class="btn btn-danger" href="{% url 'PlanCap_delete' PlanDeCapacitacion.id %}">Eliminar</a>
+                        </td>
+
+                        {% endfor %}
+                        {%else %}
+                        <h1>No hay registros </h1>
+                        {% endif %}
+                    </tr>
+                </tbody>
+
+
+
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock%}

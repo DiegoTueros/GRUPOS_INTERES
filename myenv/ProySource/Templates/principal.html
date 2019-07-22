@@ -1,0 +1,37 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+{% block content %}
+<div class="d-sm-flex align-items-center justify-content-center mb-4">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="h2 text-gray-800 d-block">Grupos de Interes</h1>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class=" col-md-12  col-lg-6  d-flex justify-content-center my-5">
+            <img height="300px" class="img-fluid"  src="http://www.cmi-facturaelectronica.com/images/header-image-blue.png"
+                class="border border rounded float-left">
+        </div>
+        <div class="col-md-12 col-lg-6 d-flex justify-content-center text-left">
+            <div class="card my-5" style="width: 20rem;">
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted"> El sistema de gestion de Grupos de Interes provee a los usuarios:</h6>
+                    <p class="card-text">
+                        <ul class="mx-3">
+                            <li>Visualizar y Gestionar la informacion de las Instituciones o individuos, como empleadores, gobiernos regionales, locales, asociaciones profesionales y representantes de la sociedad civil, que reciben los beneficios del servicio educativo</li>                            </li>
+                            <li>Registro, Actualizacion, Borrado y Listado de Insituciones</li>
+                            <li>Registro, Actualizacion, Borrado y Listado de Convenios y sus condiciones, planes de capacitación </li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+{%endblock%}

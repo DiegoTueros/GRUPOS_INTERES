@@ -1,0 +1,11 @@
+{% extends "plan_cap_base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="sumit" href="{% url 'plan_cap' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+            class="fas fa-save fa-sm text-white-50"></i> Guardar</a>
+
+{%endblock%}

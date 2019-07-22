@@ -1,0 +1,20 @@
+{% extends "Convenio_base.html" %}
+{% load staticfiles %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <h3>Desea eliminar el registro de {{object.nombre}}?</h3>
+    
+   
+    <button class = "btm btn-danger" type = 'sumit'>Sí, eliminar</button>
+    <a class = "btn btn-primary"  href = "{% url 'convenios' %}" type = "button"> Cancelar</a>
+    
+    
+   
+    
+</form>
+{%endblock%}

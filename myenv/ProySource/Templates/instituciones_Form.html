@@ -1,0 +1,145 @@
+{% extends "instituciones_base.html" %}
+{% load staticfiles %}
+{%block opciones%}
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInstBase" aria-expanded="true"
+        aria-controls="collapseInstBase">
+        <i class="fas fa-fw fa-cog"></i>
+        <span>Operaciones</span>
+    </a>
+    <div id="collapseInstBase" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Seleccionar:</h6>
+            <a class="collapse-item" href="{% url 'Inst_Form' %}">Registrar</a>
+        </div>
+    </div>
+</li>
+{%endblock%}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+
+
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h5 class="m-0 font-weight-bold text-primary">Institución</h5>
+            <div class="form-group">
+                <label for="{{form2.nombre.name}}">{{form2.nombre.label}}</label>
+                {{form2.nombre}}
+            </div>
+        </div>
+        <div class="col-md-6 offset-md-3">
+            <div class="form-group">
+                <label for="{{form2.tipo.name}}">{{form2.tipo.label}}</label>
+                {{form2.tipo}}
+            </div>
+        </div>
+        <div class="col-md-6 offset-md-3">
+            <div class="form-group">
+                <label for="{{form2.descripcion.name}}">{{form2.descripcion.label}}</label>
+                {{form2.descripcion}}
+            </div>
+        </div>
+        <div class="col-md-6 offset-md-3">
+            <div class="form-group">
+                <label for="{{form2.paginaWeb.name}}">{{form2.paginaWeb.label}}</label>
+                {{form2.paginaWeb}}
+            </div>
+        </div>
+        <div class="col-md-6 offset-md-3">
+            <div class="form-group">
+                <label for="{{form2.direccion.name}}">{{form2.direccion.label}}</label>
+                {{form2.direccion}}
+            </div>
+        </div>
+        <div class="col-md-6 offset-md-3">
+            <div class="form-group">
+                <label for="{{form2.ruc.name}}">{{form2.ruc.label}}</label>
+                {{form2.ruc}}
+            </div>
+        </div>
+        <div class="col-md-6 offset-md-3">
+            <div class="form-group">
+                <label for="{{form2.distrito.name}}">{{form2.distrito.label}}</label>
+                {{form2.distrito}}
+            </div>
+        </div>
+        <div class="col-md-6 offset-md-3">
+            <div class="form-group">
+                <label for="{{form3.provincia.name}}">{{form3.provincia.label}}</label>
+                {{form3.provincia}}
+            </div>
+        </div>
+        <div class="col-md-6 offset-md-3">
+            <div class="form-group">
+                <label for="{{form4.departamento.name}}">{{form4.departamento.label}}</label>
+                {{form4.departamento}}
+            </div>
+        </div>
+        <div class="col-md-6 offset-md-3">
+            <div class="form-group">
+                <label for="{{form5.pais.name}}">{{form5.pais.label}}</label>
+                {{form5.pais}}
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 offset-md-3">
+        <h5 class="m-0 font-weight-bold text-primary">Representante</h5>
+        <div class="form-group">
+            <label for="{{form.nombres.name}}">{{form.nombres.label}}</label>
+            {{form.nombres}}
+        </div>
+    </div>
+    <div class="col-md-6 offset-md-3">
+        <div class="form-group">
+            <label for="{{form.apellidoPaterno.name}}">{{form.apellidoPaterno.label}}</label>
+            {{form.apellidoPaterno}}
+        </div>
+    </div>
+    <div class="col-md-6 offset-md-3">
+        <div class="form-group">
+            <label for="{{form.apellidoMaterno.name}}">{{form.apellidoMaterno.label}}</label>
+            {{form.apellidoMaterno}}
+        </div>
+    </div>
+    <div class="col-md-6 offset-md-3">
+        <div class="form-group">
+            <label for="{{form.correo.name}}">{{form.correo.label}}</label>
+            {{form.correo}}
+        </div>
+    </div>
+    <div class="col-md-6 offset-md-3">
+        <div class="form-group">
+            <label for="{{form.telefono.name}}">{{form.telefono.label}}</label>
+            {{form.telefono}}
+        </div>
+    </div>
+    <div class="col-md-6 offset-md-3">
+        <div class="form-group">
+            <label for="{{form.cargo.name}}">{{form.cargo.label}}</label>
+            {{form.cargo}}
+        </div>
+    </div>
+    <div class="col-md-6 offset-md-3">
+        <div class="form-group">
+            <label for="{{form.area.name}}">{{form.area.label}}</label>
+            {{form.area}}
+        </div>
+    </div>
+    <div class="col-md-6 offset-md-3">
+        <div class="form-group">
+            <label for="{{form.dni.name}}">{{form.dni.label}}</label>
+            {{form.dni}}
+        </div>
+    </div>
+
+    <div class="col-md-6 offset-md-3">
+        <button type="sumit" href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-save fa-sm text-white-50"></i> Guardar</a>
+        </button>
+    </div>
+
+</form>
+
+{%endblock%}

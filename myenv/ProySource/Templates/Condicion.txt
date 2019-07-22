@@ -1,0 +1,91 @@
+{% extends "Convenio_base.html" %}
+{% load staticfiles %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+{%block opciones%}
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInstBase" aria-expanded="true"
+        aria-controls="collapseInstBase">
+        <i class="fas fa-fw fa-cog"></i>
+        <span>Operaciones</span>
+    </a>
+    <div id="collapseInstBase" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Seleccionar:</h6>
+            <a class="collapse-item" href="{% url 'Conv_Form' %}">Registrar</a>
+        </div>
+    </div>
+</li>
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCap" aria-expanded="true"
+        aria-controls="collapseCap">
+        <i class="fas fa-fw fa-table"></i>
+        <span>Convenio</span>
+    </a>
+    <div id="collapseCap" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Seleccionar:</h6>
+            <a class="collapse-item" href="{% url 'condiciones' %}">Condiciones</a>
+            <a class="collapse-item" href="{}">Plan de Capacitación</a>
+        </div>
+    </div>
+</li>
+{%endblock%}
+
+{% block content %}
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h5 class="m-0 font-weight-bold text-primary">Condicion</h5>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Convenio</th>
+                        <th>Monto de la Subvencion</th>
+                        <th>Tipo de Seguro y Cobertura</th>
+                        <th>Ocupación</th>
+                        <th>Horario</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Convenio</th>
+                        <th>Monto de la Subvencion</th>
+                        <th>Tipo de Seguro y Cobertura</th>
+                        <th>Ocupación</th>
+                        <th>Horario</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    {% if object_list %}
+                    {% for Horario in object_list %}
+                    <tr>
+                        <td>{{Horario.condicion.convenio}}</td>
+                        <td>{{Horario.condicion.monto}}</td>
+                        <td>{{Horario.condicion.tipoSeguroCobertura}}</td>
+                        <td>{{Horario.condicion.ocupacion}}</td>
+                        <td>{{Horario}}</td>
+                        <td>
+                            <a class="btn btn-primary" href="{}">Editar</a>
+                            <a class="btn btn-danger" href="{}">Eliminar</a>
+                        </td>
+
+                        {% endfor %}
+                        {%else %}
+                        <h1>No hay registros </h1>
+                        {% endif %}
+                    </tr>
+                </tbody>
+
+
+
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock%}

@@ -1,0 +1,85 @@
+{% extends "Convenio_base.html" %}
+{% load staticfiles %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+{%block opciones%}
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInstBase" aria-expanded="true"
+        aria-controls="collapseInstBase">
+        <i class="fas fa-fw fa-cog"></i>
+        <span>Operaciones</span>
+    </a>
+    <div id="collapseInstBase" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Seleccionar:</h6>
+            <a class="collapse-item" href="{% url 'Conv_Form' %}">Registrar</a>
+        </div>
+    </div>
+</li>
+{%endblock%}
+
+{% block content %}
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h5 class="m-0 font-weight-bold text-primary">Convenios</h5>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Tipo</th>
+                        <th>Fecha Inicio</th>
+                        <th>Fecha Final</th>
+                        <th>Facultad</th>
+                        <th>Escuela</th>
+                        <th>Universidad</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Tipo</th>
+                        <th>Fecha Inicio</th>
+                        <th>Fecha Final</th>
+                        <th>Facultad</th>
+                        <th>Escuela</th>
+                        <th>Universidad</th>
+                        <th>Acciones</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    {% if object_list %}
+                    {% for Convenio in object_list %}
+                    <tr>
+                        <td>{{Convenio.nombre}}</td>
+                        <td>{{Convenio.tipo}}</td>
+                        <td>{{Convenio.fechaInicio}}</td>
+                        <td>{{Convenio.fechaFin}}</td>
+                        <td>{{Convenio.escuela}}</td>
+                        <td>{{Convenio.escuela.facultad}}</td>
+                        <td>{{Convenio.escuela.facultad.universidad}}</td>
+                        <td>
+                            <a class="btn btn-primary" href="{% url 'Conv_edit' Convenio.id %}">Editar</a>
+                            <a class="btn btn-danger" href="{% url 'Conv_delete' Convenio.id %}">Eliminar</a>
+                        </td>
+
+                        {% endfor %}
+                        {%else %}
+                        <h1>No hay registros </h1>
+                        {% endif %}
+                    </tr>
+                </tbody>
+
+
+
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock%}

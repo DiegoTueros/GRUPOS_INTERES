@@ -1,0 +1,65 @@
+{% extends "instituciones_base.html" %}
+{% load staticfiles %}
+{%block opciones%}
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCap" aria-expanded="true"
+        aria-controls="collapseCap">
+        <i class="fas fa-fw fa-table"></i>
+        <span>Perfil Y Requerimiento</span>
+    </a>
+    <div id="collapseCap" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Seleccionar:</h6>
+            <a class="collapse-item" href="{% url 'PerfilRequer' %}">Consultar</a>
+            <a class="collapse-item" href="{% url 'PerfilRequer_Form' %}">Registrar</a>
+        </div>
+    </div>
+</li>
+{%endblock%}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+
+
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h5 class="m-0 font-weight-bold text-primary">Perfil y Requerimiento</h5>
+            <div class="form-group">
+                <label for="{{form2.institucion.name}}">{{form2.institucion.label}}</label>
+                {{form2.institucion}}
+            </div>
+        </div>
+        <div class="col-md-6 offset-md-3">
+            <div class="form-group">
+                <label for="{{form2.descripcion.name}}">{{form2.descripcion.label}}</label>
+                {{form2.descripcion}}
+            </div>
+        </div>
+        <div class="col-md-6 offset-md-3">
+            <div class="form-group">
+                <label for="{{form3.nombre.name}}">{{form3.nombre.label}}</label>
+                {{form3.nombre}}
+            </div>
+        </div>
+        <div class="col-md-6 offset-md-3">
+            <div class="form-group">
+                <label for="{{form3.area.name}}">{{form3.area.label}}</label>
+                {{form3.area}}
+            </div>
+        </div>
+        <div class="col-md-6 offset-md-3">
+            <div class="form-group">
+                <label for="{{form.prioridad.name}}">{{form.prioridad.label}}</label>
+                {{form.prioridad}}
+            </div>
+        </div>
+    <div class="col-md-6 offset-md-3">
+        <button type="sumit" href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-save fa-sm text-white-50"></i> Guardar</a>
+        </button>
+    </div>
+
+</form>
+
+{%endblock%}

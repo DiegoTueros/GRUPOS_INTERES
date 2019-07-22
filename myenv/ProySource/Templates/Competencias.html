@@ -1,0 +1,72 @@
+{% extends "plan_cap_base.html" %}
+{% load staticfiles %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+{%block opciones2%}
+<li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCap" aria-expanded="true"
+                  aria-controls="collapseCap">
+                  <i class="fas fa-fw fa-cog"></i>
+                  <span>Operaciones</span>
+                </a>
+                <div id="collapseCap" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                  <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Seleccionar:</h6>
+                    <a class="collapse-item" href="{% url 'instituciones' %}">Consultar</a>
+                    <a class="collapse-item" href="{% url 'Inst_Form' %}">Registrar</a>
+                  </div>
+                </div>
+            </li>
+{%endblock%}
+
+{% block content %}
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Tablas</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Plan de Capacitación</th>
+                        <th>Competencias Especificas</th>
+                        <th>Competencias Genericas</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Plan de Capacitación</th>
+                        <th>Competencias Especificas</th>
+                        <th>Competencias Genericas</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    {% if object_list %}
+                    {% for Competencia in object_list %}
+                    <tr>
+                        <td>{{Competencia.capacitacion}}</td>
+                        <td>{{Competencia.compEspecificas}}</td>
+                        <td>{{Competencia.compGenericas}}</td>
+                        <td>
+                            <a class="btn btn-primary" href="{}">Editar</a>
+                            <a class="btn btn-danger" href="{}">Eliminar</a>
+                        </td>
+
+                        {% endfor %}
+                        {%else %}
+                        <h1>No hay registros </h1>
+                        {% endif %}
+                    </tr>
+                </tbody>
+
+
+
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock%}
